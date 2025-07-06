@@ -1,6 +1,4 @@
 defmodule KV.Bucket do
-  use Agent
-
   @doc """
   Starts a new bucket
   """
@@ -29,5 +27,6 @@ defmodule KV.Bucket do
   """
   def delete(bucket, key) do
     Agent.update(bucket, &Map.pop(&1, key))
+    key
   end
 end
